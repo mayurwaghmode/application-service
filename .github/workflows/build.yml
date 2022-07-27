@@ -42,4 +42,4 @@ jobs:
           dockerfile: Dockerfile
           platforms: linux/amd64,linux/ppc64le
           push: true
-          tags: quay.io/mayurwaghmode111/application-service-testing:next, quay.io/mayurwaghmode111/application-service-testing:yebhiye
+          tags: quay.io/mayurwaghmode111/application-service-testing:next
