@@ -29,10 +29,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          # list of Docker images to use as base name for tags
           images: |
             quay.io/mayurwaghmode111/application-service-testing
-          # generate Docker tags based on the following events/attributes
           tags: |
             next
             type=sha
@@ -51,6 +49,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           dockerfile: Dockerfile
-          platforms: linux/amd64,linux/ppc64le
+          platforms: linux/amd64,linux/ppc64le,linux/s390x
           push: true
           tags: ${{ steps.meta.outputs.tags }}
