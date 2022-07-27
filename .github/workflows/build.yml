@@ -49,6 +49,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           dockerfile: Dockerfile
-          platforms: linux/amd64,linux/ppc64le,linux/s390x
+          platforms: linux/amd64,linux/ppc64le
           push: true
           tags: ${{ steps.meta.outputs.tags }}
