@@ -25,6 +25,17 @@ jobs:
     steps:
       - name: Checkout application-service source code
         uses: actions/checkout@v2
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            quay.io/mayurwaghmode111/application-service-testing
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            next
+            type=sha
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -42,4 +53,4 @@ jobs:
           dockerfile: Dockerfile
           platforms: linux/amd64,linux/ppc64le
           push: true
-          tags: quay.io/mayurwaghmode111/application-service-testing:next, quay.io/mayurwaghmode111/application-service-testing:new
+          tags: ${{ steps.meta.outputs.tags }}
