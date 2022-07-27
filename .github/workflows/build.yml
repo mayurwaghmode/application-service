@@ -42,4 +42,6 @@ jobs:
           dockerfile: Dockerfile
           platforms: linux/amd64,linux/ppc64le
           push: true
-          tags: quay.io/mayurwaghmode111/application-service-testing:next
+          registry: quay.io
+          repository: mayurwaghmode111/application-service-testing
+          tags: next
